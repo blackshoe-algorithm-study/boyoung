@@ -29,6 +29,7 @@ public class 회사에_있는_사람 {
         }
 
         ArrayList<String> list = new ArrayList<>(map.keySet());
+        Collections.sort(list);
         Collections.reverse(list);
 
         for(String a : list){

@@ -9,7 +9,7 @@ public class 괄호 {
     public static void main(String[] args) throws IOException{
         //"("인 경우는 stack에 push
         //")"인 경우는 stack에서 pop
-        //stack이 비었는데 ")"가 오는 경우 "NO"
+        //")"가 오는 경우에 stack이 비었다면 "NO"
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
@@ -30,7 +30,7 @@ public class 괄호 {
                 stack.push(str.charAt(j));
             }
             else if(stack.isEmpty()){
-                return "No";
+                return "NO";
             }
             else{
                 stack.pop();
@@ -38,10 +38,10 @@ public class 괄호 {
         }
 
         if(stack.isEmpty()){
-            return "Yes";
+            return "YES";
         }
         else{
-            return "No";
+            return "NO";
         }
     }
 }
