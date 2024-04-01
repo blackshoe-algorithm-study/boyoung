@@ -1,4 +1,4 @@
-package week3_0327;
+package week2_0327;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -16,6 +16,7 @@ public class 전화번호_목록 {
             String[] phonebook = new String[size];
             Map<String, Integer> map = new HashMap<>();
             boolean flag = false;
+
             for(int j=0; j<size; j++){ // phonebook,Hashmap 만들기
                 String number = br.readLine();
                 phonebook[j] = number;
@@ -25,7 +26,7 @@ public class 전화번호_목록 {
             for(int k=0; k<size; k++){ // phonebook의 번호 루프
                 for(int l=0; l<phonebook[k].length(); l++){ // 번호 하나의 문자열 루프
                     if(map.containsKey(phonebook[k].substring(0, l))){
-                        flag = true;
+                        flag = true; // 접두사를 가진 경우
                     }
                 }
             }
