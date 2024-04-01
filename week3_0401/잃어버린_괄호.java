@@ -9,7 +9,7 @@ public class 잃어버린_괄호 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st1 = new StringTokenizer(br.readLine(), "-");
-        int result = Integer.MAX_VALUE;
+        int result = Integer.MAX_VALUE; //result = 0 은 안됌
 
         while(st1.hasMoreTokens()){
             int temp = 0;
