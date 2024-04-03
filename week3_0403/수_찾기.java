@@ -16,7 +16,7 @@ public class 수_찾기 {
         }
         
         int M = Integer.parseInt(br.readLine());
-        int[] arr = new int[N];
+        int[] arr = new int[M];
         StringTokenizer st2 = new StringTokenizer(br.readLine());
         for (int i = 0; i < M; i++) {
             arr[i] = Integer.parseInt(st2.nextToken());

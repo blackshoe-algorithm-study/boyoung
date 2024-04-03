@@ -17,7 +17,7 @@ public class 진법_변환 {
         for(int i=0; i<N.length(); i++){
             char alpha = N.charAt(i);
             if( alpha >= 'A' && alpha <= 'Z'){
-                num = (alpha - 'A' + 10);
+                num = (alpha - 'A' + 10); 
             }
             else{
                 num = (alpha - '0');
