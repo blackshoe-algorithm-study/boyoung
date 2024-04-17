@@ -13,7 +13,7 @@ public class 나무_자르기 {
         StringTokenizer st2 = new StringTokenizer(br.readLine());
 
         int min =0, max = 0, mid = 0;
-        long sum = 0;
+        long sum = 0; // 나무 길이 최대가 10억이므로 int로 설정시 overflow 발생가능
 
         for(int i=0; i<N; i++){
             tree[i] = Integer.parseInt(st2.nextToken());
@@ -21,24 +21,26 @@ public class 나무_자르기 {
                 max = tree[i];
             }
         }
-
-        while(min < max){
+        
+        while(min <= max){
             mid = (min + max)/2;
             sum = 0;
-            for(int i=0; i<N; i++){
-                int get = tree[i] - mid;
-                if(get > 0){
-                    sum += get;
+            for(int i=0; i<tree.length; i++){
+                if(tree[i] - mid > 0){
+                    sum += tree[i] - mid;
                 }
             }
 
-            if(sum < M){
-                max = mid;
+            if(sum >= M){
+                min = mid + 1;
             }
-            else {
-                min = mid + 1; // 기존 mid 값을 넘어가야하기 때문에 기존 mid값에 + 1
+            else{
+                max = mid - 1;
             }
-        }
-        System.out.println(min - 1);
+        }   
+
+        System.out.println("min : " + min);
+        System.out.println("mid : " + mid);
+        System.out.println("max : " + max);
     }
 }
