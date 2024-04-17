@@ -22,7 +22,7 @@ public class 나무_자르기 {
             }
         }
         
-        while(min <= max){
+        while(min < max){
             mid = (min + max)/2;
             sum = 0;
             for(int i=0; i<tree.length; i++){
@@ -31,16 +31,15 @@ public class 나무_자르기 {
                 }
             }
 
-            if(sum >= M){
+            if(sum >= M){ 
                 min = mid + 1;
             }
             else{
-                max = mid - 1;
+                max = mid;
             }
         }   
 
-        System.out.println("min : " + min);
-        System.out.println("mid : " + mid);
-        System.out.println("max : " + max);
+        System.out.println(max-1); // min-1도 정답
+        //while문에 =를 없앤후 min과 max를 동일하게 만들기 어떤 케이스에서든 둘의 값은 같기때문에 -1해주면됌
     }
 }
