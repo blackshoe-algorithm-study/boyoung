@@ -18,7 +18,7 @@ public class 소수의_연속합 {
         isPrime[0] = false;
         isPrime[1] = false;
 
-        for(int i=2; i*i<N+1; i++){
+        for(int i=2; i*i<N+1; i++){ // i제곱이 N보다 작을때까지만 동작하도록하기
             if(isPrime[i]){
                 for(int j=i*2; j<N+1; j+=i){
                     isPrime[j] = false;
