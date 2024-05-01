@@ -44,7 +44,6 @@ public class 미로_탐색 {
                 int nextY = nowY + dy[i];
 
                 if (nextX < 0 || nextY < 0 || nextX >= N || nextY >= M) continue;
-
         		if (visited[nextX][nextY] || map[nextX][nextY] == 0) continue; //
                     
 		        queue.add(new int[] {nextX, nextY});

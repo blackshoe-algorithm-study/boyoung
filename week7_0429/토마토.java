@@ -32,7 +32,6 @@ public class 토마토 {
 
     static int bfs(int N, int M){
         int max = 0;
-        int count = 0; // 0의 개수
         while(!queue.isEmpty()){
             int c[] = queue.poll();
             int x = c[0];
@@ -44,7 +43,6 @@ public class 토마토 {
                 if(nx<0 || ny<0 || nx>=N || ny>=M) continue;
                 if(map[nx][ny] == 0){
                     map[nx][ny] = map[x][y]+1;
-                    count++;
                     queue.add(new int[] {nx, ny});
                 }
             }
