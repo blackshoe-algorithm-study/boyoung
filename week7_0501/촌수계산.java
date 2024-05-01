@@ -4,8 +4,8 @@ import java.io.*;
 import java.util.*;
 
 public class 촌수계산 {
-    static int[] dist;
-    static int[][] graph;
+    static int[] dist; // 촌수 계산
+    static int[][] graph; // 인접행렬
     static int n;
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

@@ -39,7 +39,7 @@ public class 토마토 {
         while(greenTomato>0 && !q.isEmpty()){
             int size = q.size();
             for(int i=0; i<size; i++){
-                Location l = q.poll();
+                Location l = q.remove();
                 int x = l.x;
                 int y = l.y;
                 int z = l.z;
@@ -50,14 +50,14 @@ public class 토마토 {
                     int nz = z + dz[j];
 
                     if(nx<0 || ny<0 || nz<0 || nx>=M || ny>=N || nz>=H) continue;
-                    if(tomato[nz][ny][nx] != 0)continue;
+                    if(tomato[nz][ny][nx] != 0)continue; // 토마토가 익은 경우
 
                     greenTomato--;
                     tomato[nz][ny][nx]=1;
                     q.add(new Location(nx, ny, nz));
                 }
-                days++;
             }
+            days++;
         }
 
         System.out.println(greenTomato == 0 ? days:-1);
