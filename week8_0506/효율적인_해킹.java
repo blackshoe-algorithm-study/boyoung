@@ -1,5 +1,5 @@
 package week8_0506;
-
+//dfs로는 도저히 시간초과 문제를 해결할 수 없어서 그냥 BFS로 풀었습니다..ㅠ
 import java.io.*;
 import java.util.*;
 
