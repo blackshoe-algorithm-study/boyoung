@@ -39,7 +39,7 @@ public class 토마토 {
         while(greenTomato>0 && !q.isEmpty()){
             int size = q.size();
             for(int i=0; i<size; i++){
-                Location l = q.remove();
+                Location l = q.poll();
                 int x = l.x;
                 int y = l.y;
                 int z = l.z;
