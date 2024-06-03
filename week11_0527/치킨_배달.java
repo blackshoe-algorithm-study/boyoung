@@ -13,7 +13,6 @@ public class 치킨_배달 {
     static int min = Integer.MAX_VALUE;
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
@@ -35,17 +34,12 @@ public class 치킨_배달 {
         }
 
         remaining = new boolean[chicken.size()];
-        backtracing(0, 0);
+        backtracking(0, 0);
 
-        bw.write(min + "\n");
-        br.close();
-        bw.flush();
-        bw.close();
-
-
+        System.out.println(min);
     }
 
-    public static void backtracing(int count, int idx){
+    public static void backtracking(int count, int idx){
         if(count == M){ // M개의 치킨집만 남은 경우(M개로 구성된 치킨집 경우)
             int total = 0;
             for(int i=0; i<house.size(); i++){ // 각 집에서
@@ -63,7 +57,7 @@ public class 치킨_배달 {
         }
         for(int i = idx; i<chicken.size(); i++){
             remaining[i] = true;
-            backtracing(count + 1, idx + 1);
+            backtracking(count + 1, i + 1);
             remaining[i] = false;
         }
     }
