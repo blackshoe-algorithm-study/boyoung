@@ -11,7 +11,6 @@ public class 오목 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
-        StringBuilder sb = new StringBuilder();
         map = new int[21][21];
         memo = new int[21][21][4];
 
@@ -22,27 +21,26 @@ public class 오목 {
             }
         }
 
-        for(int i=1; i<20; i++){
-            for(int j=1; j<20; j++){
+        for(int j=1; j<20; j++){
+            for(int i=1; i<20; i++){
                 if(map[i][j] != 0){
                     for(int d=0; d<4; d++){
                         if(memo[i][j][d] == 0 && dfs(i, j, d, map[i][j]) == 5){
-                            sb.append(map[i][j]).append("\n").append(i + " " + j);
+                            System.out.print(map[i][j] + "\n" + i + " " + j);
+                            return;
                         }
                     }
                 }
             }
         }
 
-        System.out.println(sb);
+        System.out.println(0);
 
     }
 
     public static int dfs(int x, int y, int d, int color){
         int nx = x + dx[d];
         int ny = y + dy[d];
-
-        if(nx<1 || nx>19 || ny<1 || ny>19 || map[nx][ny] != color) return 1;
 
         if(map[nx][ny] == color){
             return memo[nx][ny][d] = dfs(nx, ny, d, color) + 1;
