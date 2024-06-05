@@ -11,7 +11,7 @@ public class 오목 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
-        map = new int[21][21];
+        map = new int[21][21]; //1~19까지 모두 탐색하려면 20번째 행렬이 필요하기 때문에 21로 설정
         memo = new int[21][21][4];
 
         for(int i=1; i<20; i++){
@@ -21,8 +21,8 @@ public class 오목 {
             }
         }
 
-        for(int j=1; j<20; j++){
-            for(int i=1; i<20; i++){
+        for(int j=1; j<20; j++){ // 주의 : 열방향 탐색(왼쪽 열에 있는 바둑알을 먼저 탐색해야함 -> 방향 벡터 생각해보기)
+            for(int i=1; i<20; i++){ // 열방향 탐색 후 행방향 탐색
                 if(map[i][j] != 0){
                     for(int d=0; d<4; d++){
                         if(memo[i][j][d] == 0 && dfs(i, j, d, map[i][j]) == 5){
@@ -34,7 +34,7 @@ public class 오목 {
             }
         }
 
-        System.out.println(0);
+        System.out.println(0); // 주의 : 0출력하는 거 꼭 고려하기
 
     }
 
