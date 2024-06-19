@@ -30,6 +30,7 @@ public class 알고스팟{
     }
 
     public static int bfs(int x, int y){
+        //현재까지의 비용이 가장 적은 경로를 우선 탐색
         PriorityQueue<Point> q = new PriorityQueue<>();
         Point start = new Point(x, y, 0);
         q.add(start);
