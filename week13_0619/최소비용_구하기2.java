@@ -94,3 +94,13 @@ class Node implements Comparable<Node>{
         return Integer.compare(this.w, other.w);
     }
 }
+
+// testcase1
+// 4
+// 3
+// 1 3 5
+// 으로 되어 있지만
+// 4
+// 3
+// 1 4 5
+// 도 정답처리됌
