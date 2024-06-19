@@ -33,7 +33,6 @@ public class 알고스팟{
         PriorityQueue<Point> q = new PriorityQueue<>();
         Point start = new Point(x, y, 0);
         q.add(start);
-        // boolean[][] visited = new boolean[N+1][M+1];
         visited[x][y] = true;
 
         while(!q.isEmpty()){
@@ -51,7 +50,7 @@ public class 알고스팟{
                     visited[nx][ny] = true;
                 }
                 
-                if(map[nx][ny] == 0 && !visited[nx][ny]){ // else로 빼니까 안됌
+                if(map[nx][ny] == 0 && !visited[nx][ny]){ // else로 빼니까 안됌-> visited 조건이 없으므로 방문한 곳 또 방문할 수 있음
                     q.add(new Point(nx, ny, p.count));
                     visited[nx][ny] = true;
                 }
