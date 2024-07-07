@@ -1,3 +1,4 @@
+package week15_0707;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,37 +11,54 @@ public class DNA_비밀번호 {
         int S = Integer.parseInt(st.nextToken());
         int P = Integer.parseInt(st.nextToken());
         String str = br.readLine();
-        int[] dnaArr = new int[4]; // {A,C,G,T}
-        char[] pw = new char[S];
-        int[] check = new int[4];
+        int[] min = new int[4];
         int[] exist = new int[4];
-        int result=0;
-
-        for(int i=0; i<S; i++){
-            pw[i] = str.charAt(i);
-            if(pw[i] == 'A') dnaArr[0]++;
-            if(pw[i] == 'C') dnaArr[1]++;
-            if(pw[i] == 'G') dnaArr[2]++;
-            if(pw[i] == 'T') dnaArr[3]++;
-        }
-
-        st = new StringTokenizer(br.readLine());
-        for(int i=0; i<4; i++){
-            check[i] = Integer.parseInt(st.nextToken());
-        }
-
-        for(int i=0; i<4; i++){
-            if(exist[i] >= check[i]) result++;
-        }
-
-        for(int i=0; i<P; i++){ // 슬라이딩 시 개수 비교
-            if(pw[i] == 'A') exist[0]++;
-            if(pw[i] == 'C') exist[1]++;
-            if(pw[i] == 'G') exist[2]++;
-            if(pw[i] == 'T') exist[3]++;
-        }
-
+        int result = 0;
         
-
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < 4; i++) {
+            min[i] = Integer.parseInt(st.nextToken());
+        }
+        
+        // 초기 P 길이의 윈도우 설정
+        for (int i = 0; i < P; i++) {
+            addChar(exist, str.charAt(i));
+        }
+        
+        // 첫 번째 윈도우 검사
+        if (isValid(exist, min)) result++;
+        
+        // 슬라이딩 윈도우
+        for (int i = P; i < S; i++) {
+            addChar(exist, str.charAt(i)); // 새로운 문자를 추가
+            removeChar(exist, str.charAt(i - P)); // 이전 문자를 제거
+            
+            if (isValid(exist, min)) result++;
+        }
+        
+        System.out.print(result);
+    }
+    
+    private static void addChar(int[] exist, char c) {
+        if (c == 'A') exist[0]++;
+        if (c == 'C') exist[1]++;
+        if (c == 'G') exist[2]++;
+        if (c == 'T') exist[3]++;
+    }
+    
+    private static void removeChar(int[] exist, char c) {
+        if (c == 'A') exist[0]--;
+        if (c == 'C') exist[1]--;
+        if (c == 'G') exist[2]--;
+        if (c == 'T') exist[3]--;
+    }
+    
+    private static boolean isValid(int[] exist, int[] min) {
+        for (int i = 0; i < 4; i++) {
+            if (exist[i] < min[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 }

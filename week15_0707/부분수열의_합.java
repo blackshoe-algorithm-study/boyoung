@@ -12,7 +12,7 @@ public class 부분수열의_합 {
         N = Integer.parseInt(br.readLine());
         S = new int[N];
         StringTokenizer st = new StringTokenizer(br.readLine());
-        checked = new boolean[100000*20+1]; //최대수:100000이고 N값이 20개까지 있을 수 있음
+        checked = new boolean[100000*20+1]; //수의 최대값:100000이고 N(개수)이 20개까지 있을 수 있음(전부 다 더했을때 최대값)
 
         for(int i=0; i<N; i++){
             S[i] = Integer.parseInt(st.nextToken());
