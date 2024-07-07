@@ -20,18 +20,15 @@ public class DNA_비밀번호 {
             min[i] = Integer.parseInt(st.nextToken());
         }
         
-        // 초기 P 길이의 윈도우 설정
         for (int i = 0; i < P; i++) {
             addChar(exist, str.charAt(i));
         }
         
-        // 첫 번째 윈도우 검사
         if (isValid(exist, min)) result++;
         
-        // 슬라이딩 윈도우
         for (int i = P; i < S; i++) {
-            addChar(exist, str.charAt(i)); // 새로운 문자를 추가
-            removeChar(exist, str.charAt(i - P)); // 이전 문자를 제거
+            addChar(exist, str.charAt(i)); // 윈도우 마지막 문자
+            removeChar(exist, str.charAt(i - P)); // 윈도우 첫번째 문자
             
             if (isValid(exist, min)) result++;
         }
