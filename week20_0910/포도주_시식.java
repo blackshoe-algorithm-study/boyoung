@@ -19,14 +19,14 @@ public class 포도주_시식 {
             wine[i] = Integer.parseInt(br.readLine());
         }
 
-        dp[0]=0;
+        dp[0] = 0;
+        if (N >= 1) dp[1] = wine[1];
+        if (N >= 2) dp[2] = wine[1] + wine[2]; 
 
-        for(int i=1; i<=N; i++){
-            if(i==1) dp[i] = wine[i];
-            if(i==2) dp[i] = wine[i-1] + wine[i];
-            else{
-                dp[i] = Math.max(dp[i-1], Math.max(wine[i]+dp[i-2], wine[i]+wine[i-1]+dp[i-3]));
-            }
+        for (int i = 3; i <= N; i++) {
+            dp[i] = Math.max(dp[i - 1], 
+                             Math.max(wine[i] + dp[i - 2], 
+                                      wine[i] + wine[i - 1] + dp[i - 3]));
         }
 
         System.out.println(dp[N]);
