@@ -33,7 +33,7 @@ public class 체스판_다시_칠하기 {
                 for(int k=0; k<2; k++){
                     char first = k==0 ? 'W': 'B';
 
-                    int count = 0;
+                    int count = 0; //색깔 변경하는 개수
                     for(int n=i; n<i+8; n++){ // 8*8체스판 탐색 후 색깔이 다른거 변경
                         for(int m=j; m<j+8; m++){
                             if(first != chess[n].charAt(m)) count++;
