@@ -15,14 +15,16 @@ public class LCS {
 
         int[][] dp = new int[str1_n+1][str2_n+1]; // 1,1부터 시작
 
-        for(int i=1; i<str1_n; i++){
-            for(int j=1; j<str2_n; j++){
+        for(int i=1; i<=str1_n; i++){
+            for(int j=1; j<=str2_n; j++){
                 if(str1[i-1]==str2[j-1]){
                     dp[i][j] = dp[i-1][j-1] + 1;
                 }else{
-                    
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
                 }
             }
         }
+
+        System.out.println(dp[str1_n][str2_n]);
     }
 }
