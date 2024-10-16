@@ -30,7 +30,7 @@ public class 치즈 {
         int time = 0; 
         while (true) {
             visited = new boolean[N][M];
-            dfs(0, 0);
+            dfs(0, 0); // 한번 돌때마다 연결된 외부 공기를 탐색 -> visited 처리
             
             boolean melted = false;
             for (int i = 0; i < N; i++) {
@@ -61,7 +61,7 @@ public class 치즈 {
             int ny = y + dy[i];
 
             if (nx < 0 || ny < 0 || nx >= N || ny >= M) continue;
-            if (!visited[nx][ny] && cheese[nx][ny] == 0) {
+            if (!visited[nx][ny] && cheese[nx][ny] == 0) { // 연결되어 있는 외부 공기들을 visited 처리, 안에 갇혀 있는 외부 공기들은 0의 값을 가지지만 visited 되지 않음
                 dfs(nx, ny);
             }
         }
@@ -76,7 +76,7 @@ public class 치즈 {
             int ny = y + dy[i];
 
             if (nx < 0 || ny < 0 || nx >= N || ny >= M) continue;
-            if (cheese[nx][ny] == 0 && visited[nx][ny]) {  
+            if (cheese[nx][ny] == 0 && visited[nx][ny]) {   // visited된 부분들은 외부 공기
                 contact++;
             }
         }
