@@ -81,13 +81,13 @@ public class 파티 {
         return dist;
         // 특정 노드 start에서 시작해서 X까지 
     }
-}
 
-class Node{
-    int v;
-    int w;
-    public Node(int v, int w){
-        this.v = v;
-        this.w = w;
+    static class Node{
+        int v;
+        int w;
+        public Node(int v, int w){
+            this.v = v;
+            this.w = w;
+        }
     }
 }
