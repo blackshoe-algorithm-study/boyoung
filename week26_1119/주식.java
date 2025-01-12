@@ -2,7 +2,11 @@ package week26_1119;
 
 import java.io.*;
 import java.util.*;
-
+/*
+ * 역방향으로 탐색할 때 판매하는 가격의 큰 값을 먼저 얻어서 비교할 수 있음
+ * 순방향 시 미래 최대값을 알아야하는 복잡한 로직이 필요함
+ * 역방향에서 큰 값을 찾으면 그 앞에 있는 가격들은 더 큰 최대값을 찾아내지 않는이상 해당하는 최대값으로 판매되는 것이 가장 큰 이익
+ */
 public class 주식 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -36,7 +40,7 @@ public class 주식 {
 }
 
 /*
----> greedy 문제제
+---> greedy 문제
 주식 문제에서는 최대 계산 가능한 이익이:
 
 최대 가격: 10,000
